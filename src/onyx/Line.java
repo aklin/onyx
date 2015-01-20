@@ -1,5 +1,6 @@
 package onyx;
 
+import onyx.util.Pair;
 import java.io.IOException;
 import java.util.ArrayList;
 

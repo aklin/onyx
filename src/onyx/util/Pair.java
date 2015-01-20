@@ -1,4 +1,4 @@
-package onyx;
+package onyx.util;
 
 
 public final class Pair<LEFT, RIGHT> {
