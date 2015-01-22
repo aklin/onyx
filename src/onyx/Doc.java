@@ -1,5 +1,7 @@
 package onyx;
 
+import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -10,14 +12,13 @@ public class Doc {
 	public Doc() {
 		lines = new ArrayList<>();
 	}
-	
-	
-	public void put(Doc d, int x, int y){
+
+	public void put(final Doc d, final int col, final int row) {
 		
 	}
-	
-	public void put(CharSequence s, int x, int y){
-		
+
+	public void put(CharSequence s, int x, int y) {
+
 	}
 
 	private ArrayList<StringBuilder> collection() {
@@ -38,5 +39,22 @@ public class Doc {
 		final Doc ret = new Doc();
 		ret.collection().addAll(proto.collection());
 		return ret;
+	}
+
+	@Override
+	public String toString() {
+		final StringBuilder ret = new StringBuilder();
+
+		lines.stream().forEach((m) -> {
+			ret.append(m);
+		});
+
+		return ret.toString();
+	}
+
+	public void flush(final Writer writer) throws IOException {
+		for (StringBuilder line : lines)
+			writer.write(line.toString());
+
 	}
 }
